@@ -6,8 +6,6 @@ param vnets array = [
       {
         name: 'frontend'
         subnetPrefix: '10.1.0.0/26'
-        nsg: true
-        securityRules: []
         routeTable: true
         disableBGPRoutePropagation: true
         routes: [
@@ -23,26 +21,10 @@ param vnets array = [
       {
         name: 'backend'
         subnetPrefix: '10.1.0.64/26'
-      }
-    ]
-  }
-  {
-    name: 'landingzone-2-vnet'
-    addressPrefix: '10.2.0.0/24'
-    subnets: [
-      {
-        name: 'frontend'
-        subnetPrefix: '10.2.0.0/26'
-      }
-      {
-        name: 'backend'
-        subnetPrefix: '10.2.0.64/26'
+        routeTable: false
+        disableBGPRoutePropagation: true
+        routes: []
       }
     ]
   }
 ]
-
-
-var steffe = [for name in steffe: {
-
-}]
