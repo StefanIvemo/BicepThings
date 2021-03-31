@@ -13,6 +13,6 @@ module virtualNetwork 'modules/virtualNetwork.bicep' = [for vnet in vnets: {
   name: '${vnet.name}-deploy'
   params: {
     vnetName: vnet.name
-     addressPrefixes: vnet.addressPrefix    
+    addressPrefixes: vnet.addressPrefix
   }
 }]

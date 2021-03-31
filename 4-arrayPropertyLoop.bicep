@@ -7,6 +7,10 @@ param subnets array = [
     name: 'backend'
     subnetPrefix: '10.1.0.64/26'
   }
+  {
+    name: 'appservice'
+    subnetPrefix: '10.1.0.128/26'
+  }
 ]
 
 resource vnet 'Microsoft.Network/virtualNetworks@2018-11-01' = {

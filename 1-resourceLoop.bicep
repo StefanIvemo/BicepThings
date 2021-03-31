@@ -9,7 +9,7 @@ param vnets array = [
   }
 ]
 
-resource vnet 'Microsoft.Network/virtualNetworks@2018-11-01' = [for vnet in vnets: {
+resource virtualNetworks 'Microsoft.Network/virtualNetworks@2018-11-01' = [for vnet in vnets: {
   name: vnet.name
   location: resourceGroup().location
   properties: {

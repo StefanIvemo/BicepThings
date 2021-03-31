@@ -1,4 +1,3 @@
-
 param vnets array = [
   {
     name: 'landingzone-1-vnet'
@@ -10,7 +9,7 @@ param vnets array = [
   }
 ]
 
-resource vnet 'Microsoft.Network/virtualNetworks@2018-11-01' = [for vnet in vnets: {
+resource virtualNetworks 'Microsoft.Network/virtualNetworks@2018-11-01' = [for vnet in vnets: {
   name: vnet.name
   location: resourceGroup().location
   properties: {
@@ -22,8 +21,8 @@ resource vnet 'Microsoft.Network/virtualNetworks@2018-11-01' = [for vnet in vnet
   }
 }]
 
-output vnets array = [for (net, i) in vnets: {
-  name: vnet[i].name
-  resourceId: vnet[i].id
-  addressPrefixes: vnet[i].properties.addressSpace.addressPrefixes
+output vnets array = [for (vnet, i) in vnets: {
+  name: virtualNetworks[i].name
+  resourceId: virtualNetworks[i].id
+  addressPrefixes: virtualNetworks[i].properties.addressSpace.addressPrefixes
 }]
