@@ -1,4 +1,4 @@
-param subnets array = [
+var subnets = [
   {
     name: 'frontend'
     subnetPrefix: '10.1.0.0/26'
@@ -13,7 +13,7 @@ param subnets array = [
   }
 ]
 
-resource vnet 'Microsoft.Network/virtualNetworks@2018-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
   name: 'sandbox-vnet'
   location: resourceGroup().location
   properties: {

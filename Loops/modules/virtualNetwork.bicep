@@ -1,9 +1,5 @@
-// 2020-08-01-1
-
 param vnetName string
-param addressPrefixes array = [
-  '10.0.0.0/16'
-]
+param addressPrefix string
 param subnets array = []
 param dnsServers array = []
 param enableDdosProtection bool = false
@@ -17,7 +13,9 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-08-01' = {
   tags: tags
   properties: {
     addressSpace: {
-      addressPrefixes: addressPrefixes
+      addressPrefixes: [
+        addressPrefix
+      ]
     }
     dhcpOptions: {
       dnsServers: dnsServers

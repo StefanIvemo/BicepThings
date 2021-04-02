@@ -1,4 +1,4 @@
-resource virtualNetworks 'Microsoft.Network/virtualNetworks@2018-11-01' = [for i in range(10,4): {
+resource virtualNetworks 'Microsoft.Network/virtualNetworks@2020-06-01' = [for i in range(1, 4): {
   name: 'landingzone-${i}-vnet'
   location: resourceGroup().location
   properties: {
