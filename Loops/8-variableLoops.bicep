@@ -1,5 +1,5 @@
 param fwName string = 'steffes-fw'
-param subnetId string
+param subnetId string = '/subscriptions/95695240-9cfc-444f-8dcb-a7e45ce85aa2/resourceGroups/finalbosse2/providers/Microsoft.Network/virtualNetworks/steffes-vnet/subnets/AzureFirewallSubnet'
 param publicIpCount int = 5
 param location string = resourceGroup().location
 
@@ -21,7 +21,7 @@ var fwIpConfigurations = [for i in range(1, publicIpCount): {
       id: subnetId
     } : json('null')
     publicIPAddress: {
-      id: publicIPs[i].id
+      id: publicIPs[i-1].id
     }
   }
 }]
